@@ -2,7 +2,7 @@
 
 A Godot app to study Japanese Kanji. 
 
-<img src="img/KanjiValley_screengrab.gif" width="100"/>
+<img src="img/KanjiValley_screengrab.gif" width="250"/>
 
 <!-- ![](img/KanjiValley_screengrab.gif =250x) -->
 
