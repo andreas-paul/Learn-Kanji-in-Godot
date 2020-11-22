@@ -1,8 +1,8 @@
 # KANJI VALLEY
 
-A Godot app to study Japanese Kanji.  
+A Godot app to study Japanese Kanji. 
 
-![Kanji Valley Screengrab](img/KanjiValley_screengrab.gif)
+![](img/KanjiValley_screengrab.gif =250x)
 
 Features:
 
