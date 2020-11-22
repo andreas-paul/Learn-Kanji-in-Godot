@@ -1,7 +1,6 @@
 extends Node
 
 onready var data_standard = load_json("assets/kanji.json")
-onready var data_wanikani = load_json("assets/kanji-wanikani.json")
 
 onready var data = data_standard
 
