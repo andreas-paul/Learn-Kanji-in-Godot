@@ -1,6 +1,6 @@
 # KANJI VALLEY
 
-A Godot app to study Japanese Kanji, developed as part of my efforts to learn Godot and GameDev in general. Uses GDscript but for the Romaji to Kana conversion.
+A Godot app to study Japanese Kanji, developed as part of my efforts to learn Godot and GameDev in general. Uses GDscript but for the Romaji to Kana conversion, which uses Python.
 
 <p align="center">
 <img src="img/KanjiValley_screengrab.gif" width="250"/>
@@ -21,6 +21,7 @@ To do:
 - Kanji history on a grid
 - Maybe some sort of SRS
 - More info about specific Kanji (maybe even Jiso.org integration)
+- Graphics (nice animations etc.)
 
 Requirements:  
 
