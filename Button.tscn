@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/KenneyFutureNarrow_40.tres" type="DynamicFont" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="Button" type="Button"]
+margin_right = -0.519989
+margin_bottom = 0.127998
+rect_min_size = Vector2( 300, 80 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/focus = SubResource( 2 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.152941, 0.364706, 0.443137, 1 )
+custom_colors/font_color_hover = Color( 0.415686, 0.415686, 0.415686, 1 )
+text = "New Game"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
