@@ -34,6 +34,7 @@ Requirements:
 Credits:
 
 - [Godot](https://godotengine.org/)
+- [Godot Python](https://github.com/touilleMan/godot-python)
 - [Kanji data](https://github.com/davidluzgouveia/kanji-data)
 - [WanaKana-py](https://github.com/Starwort/wanakana-py)
 - [WanaKana](https://github.com/WaniKani/WanaKana)
