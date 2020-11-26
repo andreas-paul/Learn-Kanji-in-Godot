@@ -8,8 +8,8 @@ onready var readings = _base.jlpt5[_base.character]['readings_on'] + _base.jlpt5
 signal reading_correct
 signal reading_wrong
 
+
 func _ready():
-	# print("Loaded reading scene suceessfully with ", _base.character)
 
 	$CenterContainer/VBoxContainer/Kanji.text = _base.character
 	$CenterContainer/VBoxContainer/Input.grab_focus()
@@ -18,16 +18,15 @@ func _ready():
 		if '.' in readings[i]:
 			readings[i] = readings[i].replace('.', '')
 	
-func _check_reading(response):
 
+func _check_reading(response):
 	if response in readings:
 		emit_signal("reading_correct")
 	else:
 		emit_signal("reading_wrong")
 		
 
-func _on_Input_text_entered(new_text):
-	print(readings)
+func _on_Input_text_entered(new_text):	
 	_check_reading(new_text)
 
 
@@ -49,5 +48,11 @@ func _on_Reading_reading_wrong():
 
 func _on_Reading_reading_correct():
 	queue_free()	
-	get_tree().change_scene("res://Translate.tscn")
+	var err = get_tree().change_scene("res://Translate.tscn")
+	if err != OK:
+		push_error(err)
 
+
+func _on_ReturnToStart_pressed():
+	queue_free()
+	var _discard = get_tree().change_scene("res://StartMenu.tscn")

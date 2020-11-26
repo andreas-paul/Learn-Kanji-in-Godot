@@ -13,6 +13,8 @@ onready var jlpt1 = filter_by_jlpt(1, data)  # JLPT 1
 onready var character = '生'
 onready var reading
 onready var meaning
+onready var seen = [] 
+
 
 func filter_by_jlpt(jlpt, parsed_data):
 	var data_jlpt = {}
@@ -21,6 +23,7 @@ func filter_by_jlpt(jlpt, parsed_data):
 			data_jlpt[i] = parsed_data[i]
 	return data_jlpt
 	
+
 func load_json(path):
 	# Define variables and load json from disk
 	var file = File.new()
@@ -39,6 +42,7 @@ func load_json(path):
 		print('Error', kanji.error)
 		print("Error Line: ", kanji.error_line)
 		print("Error String: ", kanji.error_string)
+	
 		
 func _distance(response, meaning):
 	for i in meaning:		
@@ -46,6 +50,7 @@ func _distance(response, meaning):
 			return true
 		else:		
 			return false
+
 
 func _edit_distance(str1, str2, m, n):	
 	# This function calculates the edit distance between response

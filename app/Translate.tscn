@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/Translate.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/NotoSansJP-Med_30.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/fonts/NotoSansJP-Med_52.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Background.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -61,13 +62,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.87451, 0.866667, 0.866667, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Background" parent="." instance=ExtResource( 4 )]
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
