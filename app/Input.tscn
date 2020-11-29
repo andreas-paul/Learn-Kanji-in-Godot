@@ -1,13 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/fonts/NotoSansJP-Med_30.tres" type="DynamicFont" id=1]
 
-[sub_resource type="StyleBoxEmpty" id=1]
-
-[sub_resource type="StyleBoxEmpty" id=2]
-
-[sub_resource type="Animation" id=3]
-resource_name = "Flash"
+[sub_resource type="Animation" id=1]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -22,60 +17,71 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0.1 ), Color( 0.901961, 0.101961, 0.101961, 0.509804 ), Color( 0, 0, 0, 0.0980392 ) ]
 }
 
-[sub_resource type="DynamicFontData" id=4]
+[sub_resource type="DynamicFontData" id=2]
 font_path = "res://assets/fonts/Kenney Future Narrow.ttf"
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=3]
 size = 15
 outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
 extra_spacing_char = -2
 extra_spacing_space = 4
-font_data = SubResource( 4 )
+font_data = SubResource( 2 )
 
-[node name="Input" type="LineEdit"]
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[node name="InputScene" type="Control"]
 margin_top = 203.0
 margin_right = 300.0
 margin_bottom = 253.0
 rect_min_size = Vector2( 0, 50 )
-custom_styles/focus = SubResource( 1 )
-custom_styles/normal = SubResource( 2 )
-custom_fonts/font = ExtResource( 1 )
-custom_colors/selection_color = Color( 0.937255, 0.937255, 0.937255, 1 )
-custom_colors/cursor_color = Color( 0.152941, 0.364706, 0.443137, 1 )
-custom_colors/clear_button_color_pressed = Color( 0.152941, 0.364706, 0.443137, 1 )
-custom_colors/font_color_selected = Color( 0.152941, 0.364706, 0.443137, 1 )
-custom_colors/font_color = Color( 0.152941, 0.364706, 0.443137, 1 )
-custom_colors/clear_button_color = Color( 0.152941, 0.364706, 0.443137, 1 )
-align = 1
-clear_button_enabled = true
-placeholder_alpha = 0.2
-caret_blink = true
-caret_blink_speed = 0.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 0.1 )
+color = Color( 0, 0, 0, 0.101961 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
-anims/Flash = SubResource( 3 )
+anims/Flash = SubResource( 1 )
 
 [node name="Label" type="Label" parent="."]
 anchor_top = -1.6
 anchor_bottom = -1.4
 margin_top = 58.0
 margin_right = 300.0
-margin_bottom = 76.0
-custom_fonts/font = SubResource( 5 )
+margin_bottom = 69.0
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.152941, 0.364706, 0.443137, 1 )
-text = "Enter translation"
+text = "Type any translation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Input" type="LineEdit" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/read_only = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/selection_color = Color( 1, 1, 1, 1 )
+custom_colors/cursor_color = Color( 0.152941, 0.364706, 0.443137, 1 )
+custom_colors/clear_button_color_pressed = Color( 0.152941, 0.364706, 0.443137, 1 )
+custom_colors/font_color_selected = Color( 0.152941, 0.364706, 0.443137, 1 )
+custom_colors/font_color = Color( 0.152941, 0.364706, 0.443137, 1 )
+custom_colors/clear_button_color = Color( 0.152941, 0.364706, 0.443137, 1 )
+custom_colors/font_color_uneditable = Color( 0.152941, 0.364706, 0.443137, 1 )
+align = 1
+caret_blink = true
+caret_blink_speed = 0.5
 __meta__ = {
 "_edit_use_anchors_": false
 }

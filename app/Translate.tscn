@@ -5,13 +5,7 @@
 [ext_resource path="res://assets/fonts/NotoSansJP-Med_52.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=4]
 
-[sub_resource type="StyleBoxEmpty" id=1]
-
-[sub_resource type="StyleBoxEmpty" id=2]
-
-[sub_resource type="StyleBoxEmpty" id=3]
-
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -26,18 +20,22 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0.1 ), Color( 0.901961, 0.101961, 0.101961, 0.509804 ), Color( 0, 0, 0, 0.0980392 ) ]
 }
 
-[sub_resource type="DynamicFontData" id=5]
+[sub_resource type="DynamicFontData" id=2]
 font_path = "res://assets/fonts/Kenney Future Narrow.ttf"
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=3]
 size = 15
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 extra_spacing_char = -2
 extra_spacing_space = 4
-font_data = SubResource( 5 )
+font_data = SubResource( 2 )
 
-[sub_resource type="StyleBoxEmpty" id=7]
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
 
 [sub_resource type="StyleBoxEmpty" id=8]
 
@@ -45,14 +43,16 @@ font_data = SubResource( 5 )
 
 [sub_resource type="StyleBoxEmpty" id=10]
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="StyleBoxEmpty" id=11]
 
-[sub_resource type="DynamicFontData" id=12]
+[sub_resource type="DynamicFont" id=12]
+
+[sub_resource type="DynamicFontData" id=13]
 font_path = "res://assets/fonts/Kenney Future Narrow.ttf"
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=7]
 size = 20
-font_data = SubResource( 12 )
+font_data = SubResource( 13 )
 
 [node name="Translate" type="Control"]
 anchor_right = 1.0
@@ -101,32 +101,13 @@ margin_right = 300.0
 margin_bottom = 199.0
 rect_min_size = Vector2( 0, 50 )
 
-[node name="Input" type="LineEdit" parent="CenterContainer/VBoxContainer"]
+[node name="InputBranch" type="Control" parent="CenterContainer/VBoxContainer"]
 margin_top = 203.0
 margin_right = 300.0
 margin_bottom = 253.0
 rect_min_size = Vector2( 0, 50 )
-custom_styles/read_only = SubResource( 1 )
-custom_styles/focus = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = ExtResource( 2 )
-custom_colors/selection_color = Color( 0.937255, 0.937255, 0.937255, 1 )
-custom_colors/cursor_color = Color( 0.152941, 0.364706, 0.443137, 1 )
-custom_colors/clear_button_color_pressed = Color( 0.152941, 0.364706, 0.443137, 1 )
-custom_colors/font_color_selected = Color( 0.152941, 0.364706, 0.443137, 1 )
-custom_colors/font_color = Color( 0.152941, 0.364706, 0.443137, 1 )
-custom_colors/clear_button_color = Color( 0.152941, 0.364706, 0.443137, 1 )
-custom_colors/font_color_uneditable = Color( 0.152941, 0.364706, 0.443137, 1 )
-align = 1
-clear_button_enabled = true
-placeholder_alpha = 0.2
-caret_blink = true
-caret_blink_speed = 0.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ColorRect" type="ColorRect" parent="CenterContainer/VBoxContainer/Input"]
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/VBoxContainer/InputBranch"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -135,18 +116,39 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/Input/ColorRect"]
-anims/Flash = SubResource( 4 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/InputBranch/ColorRect"]
+anims/Flash = SubResource( 1 )
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Input"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/InputBranch"]
 anchor_top = -1.6
 anchor_bottom = -1.4
 margin_top = 58.0
 margin_right = 300.0
-margin_bottom = 76.0
-custom_fonts/font = SubResource( 6 )
+margin_bottom = 69.0
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.152941, 0.364706, 0.443137, 1 )
 text = "Type any translation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Input" type="LineEdit" parent="CenterContainer/VBoxContainer/InputBranch"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/read_only = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/selection_color = Color( 1, 1, 1, 1 )
+custom_colors/cursor_color = Color( 0.152941, 0.364706, 0.443137, 1 )
+custom_colors/clear_button_color_pressed = Color( 0.152941, 0.364706, 0.443137, 1 )
+custom_colors/font_color_selected = Color( 0.152941, 0.364706, 0.443137, 1 )
+custom_colors/font_color = Color( 0.152941, 0.364706, 0.443137, 1 )
+custom_colors/clear_button_color = Color( 0.152941, 0.364706, 0.443137, 1 )
+custom_colors/font_color_uneditable = Color( 0.152941, 0.364706, 0.443137, 1 )
+align = 1
+caret_blink = true
+caret_blink_speed = 0.5
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -158,11 +160,11 @@ margin_left = 11.0
 margin_top = -31.0
 margin_right = 102.0
 margin_bottom = -5.0
-custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
-custom_fonts/font = SubResource( 11 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 flat = true
 __meta__ = {
 "_edit_group_": true,
@@ -172,7 +174,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="ReturnToStart"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 text = "BACK"
 valign = 1
@@ -182,5 +184,5 @@ __meta__ = {
 }
 [connection signal="correct_translation" from="." to="." method="_on_Translate_correct_translation"]
 [connection signal="wrong_translation" from="." to="." method="_on_Translate_wrong_translation"]
-[connection signal="text_entered" from="CenterContainer/VBoxContainer/Input" to="." method="_on_Input_text_entered"]
+[connection signal="text_entered" from="CenterContainer/VBoxContainer/InputBranch/Input" to="." method="_on_Input_text_entered"]
 [connection signal="pressed" from="ReturnToStart" to="." method="_on_ReturnToStart_pressed"]

@@ -5,15 +5,25 @@ onready var keys = jlpt5.keys()
 onready var word
 
 var ReadingScene = preload("res://Reading.tscn")
+var state
 
 signal correct_translation
 signal wrong_translation
+
+enum {
+	WAIT
+}
 
 
 func _ready():	
 	_generate_kanji()
 	$CenterContainer/VBoxContainer/Kanji.text = str(_base.character)
-	$CenterContainer/VBoxContainer/Input.grab_focus()
+	$CenterContainer/VBoxContainer/InputBranch/Input.grab_focus()
+
+
+func _input(event):
+	if state == WAIT and event.is_action_pressed("ui_accept"):
+		_change_to_reading()
 
 
 func _generate_kanji():
@@ -45,12 +55,13 @@ func _check_translation(response):
 
 
 func _on_Translate_correct_translation():
-	queue_free()
-	get_tree().get_root().add_child(ReadingScene.instance())
+	$CenterContainer/VBoxContainer/InputBranch/ColorRect.color = Color(0,0.6,0,0.2)
+	$CenterContainer/VBoxContainer/InputBranch/Input.editable = false
+	state = WAIT
 
-
+	
 func _on_Translate_wrong_translation():
-	$CenterContainer/VBoxContainer/Input/ColorRect/AnimationPlayer.play("Flash")	
+	$CenterContainer/VBoxContainer/InputBranch/ColorRect/AnimationPlayer.play("Flash")	
 
 
 func _on_ReturnToStart_pressed():
@@ -59,5 +70,10 @@ func _on_ReturnToStart_pressed():
 
 
 func _set_input_empty():
-	$CenterContainer/VBoxContainer/Input.text = ''
+	$CenterContainer/VBoxContainer/InputBranch/Input.text = ''
 
+
+func _change_to_reading():
+	get_tree().set_input_as_handled()
+	queue_free()
+	get_tree().get_root().add_child(ReadingScene.instance())
