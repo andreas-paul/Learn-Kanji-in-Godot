@@ -14,7 +14,7 @@ func _ready():
 	_generate_kanji()
 	$CenterContainer/VBoxContainer/Kanji.text = str(_base.character)
 	$CenterContainer/VBoxContainer/Input.grab_focus()
-	
+
 
 func _generate_kanji():
 	randomize()
@@ -29,19 +29,19 @@ func _generate_kanji():
 	else:
 		_generate_kanji()
 	
-		
+
+func _on_Input_text_entered(new_text):		
+	new_text = new_text.to_lower()	
+	_check_translation(new_text)
+
+
 func _check_translation(response):		
 	for i in range(len(_base.meaning)):
 		_base.meaning[i] = _base.meaning[i].to_lower()
-	if (response in _base.meaning) or _base._distance(response, _base.meaning):		
-		emit_signal("correct_translation")
+	if (response in _base.meaning) or _base._distance(response, _base.meaning):	
+		emit_signal("correct_translation")		
 	else:		
 		emit_signal("wrong_translation")
-
-
-func _on_Input_text_entered(new_text):
-	new_text = new_text.to_lower()	
-	_check_translation(new_text)
 
 
 func _on_Translate_correct_translation():

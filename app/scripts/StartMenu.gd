@@ -19,3 +19,7 @@ func _on_StudyButton_pressed():
 	yield(get_tree().create_timer(0.05), "timeout")
 	queue_free()
 	get_tree().get_root().add_child(study)
+
+func _on_VocabularyButton_pressed():
+	clicksound.play()
+	yield(get_tree().create_timer(0.05), "timeout")
