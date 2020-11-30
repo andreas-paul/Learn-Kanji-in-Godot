@@ -7,6 +7,9 @@ onready var word
 var ReadingScene = preload("res://Reading.tscn")
 var state
 
+# Variable to count tries that turned out wrong
+var tries = 0
+
 signal correct_translation
 signal wrong_translation
 
@@ -17,7 +20,7 @@ enum {
 
 func _ready():	
 	_generate_kanji()
-	$CenterContainer/VBoxContainer/Kanji.text = str(_base.character)
+	$CenterContainer/VBoxContainer/Kanji.text = _base.character
 	$CenterContainer/VBoxContainer/InputBranch/Input.grab_focus()
 
 
@@ -62,6 +65,10 @@ func _on_Translate_correct_translation():
 	
 func _on_Translate_wrong_translation():
 	$CenterContainer/VBoxContainer/InputBranch/ColorRect/AnimationPlayer.play("Flash")	
+	tries += 1
+	if tries > 2:
+		print('High on tries')
+		tries = 0
 
 
 func _on_ReturnToStart_pressed():
