@@ -51,10 +51,16 @@ func _on_Input_text_entered(new_text):
 func _check_translation(response):		
 	for i in range(len(_base.meaning)):
 		_base.meaning[i] = _base.meaning[i].to_lower()
-	if (response in _base.meaning) or _base._distance(response, _base.meaning):	
-		emit_signal("correct_translation")		
-	else:		
-		emit_signal("wrong_translation")
+	# if (response in _base.meaning) or _base._distance(response, _base.meaning):	
+	for meaning in _base.meaning:
+		if (meaning in response or response in meaning) and len(meaning) == len(response):
+			print('First condition')
+			emit_signal("correct_translation")	
+		elif _base._distance(response, _base.meaning):
+			print('Second condition')
+			emit_signal("correct_translation")		
+		else:		
+			emit_signal("wrong_translation")
 
 
 func _on_Translate_correct_translation():
