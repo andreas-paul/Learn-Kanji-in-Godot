@@ -1,6 +1,6 @@
 # KANJI VALLEY
 
-A Godot app to study Japanese Kanji, developed as part of my efforts to learn Godot and GameDev in general. Uses GDscript but for the Romaji to Kana conversion, which uses Python.
+A Godot app to study Japanese Kanji, developed as part of my efforts to learn Godot and GameDev in general. Uses GDscript but for the Romaji to Kana conversion, which uses Python. Barebones for now
 
 <p align="center">
 <img src="img/KanjiValley_screengrab.gif" width="250"/>
@@ -28,9 +28,9 @@ Requirements:
 - Assets folder:
 
     - kanji.json downloaded from [here](https://github.com/davidluzgouveia/kanji-data) 
-    - Fonts (change to our own in editor for now)
+    - Add your own fonts. Needs to support Japanese (e.g. NotoSansJP)
 
-- Godot addons: Pythonscript version 0.50.0
+- Godot addons: Pythonscript v. >=0.50.0
 
 Credits:
 
