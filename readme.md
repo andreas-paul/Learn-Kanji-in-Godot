@@ -10,7 +10,8 @@ Features:
 
 - JLPT5 Kanji only (for now)
 - Check translation and reading
-- Automatically converts to Hiragana while typing (in reading scene)
+- Automatically converts to Hiragana while typing (in reading scene) > Python
+- Uses edit distance to allow for minor typos (Damerau-Levenshtein distance) > Python
 
 To do:
 
