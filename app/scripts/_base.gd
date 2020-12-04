@@ -42,13 +42,16 @@ func load_json(path):
 		print('Error', kanji.error)
 		print("Error Line: ", kanji.error_line)
 		print("Error String: ", kanji.error_string)
-	
-		
-func _distance(response, meaning):
-	for i in meaning:		
-		if _edit_distance(response, i, len(response), len(i)) <= 2:			
+
+
+func _distance(response, meanings):
+	var list_dist = {}
+	for i in meanings:	
+		list_dist[i] = autoloadpy.dl_dist(response, i)
+	for value in list_dist:
+		if int(list_dist[value]) <= 1:
 			return true
-		else:		
+		else: 
 			return false
 
 
