@@ -3,7 +3,7 @@
 A Godot app to study Japanese Kanji, developed as part of my efforts to learn Godot and GameDev in general. Uses GDscript but for the Romaji to Kana conversion, which uses Python. Barebones for now
 
 <p align="center">
-<img src="img/KanjiValley_screengrab.gif" width="250"/>
+<img src="img/example.gif" width="250"/>
 </p>
 
 Features:
